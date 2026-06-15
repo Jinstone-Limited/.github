@@ -2,127 +2,99 @@
 
 <img src="assets/jinstone-banner.png" alt="Jinstone" width="680" />
 
-### Edge AI inference infrastructure on open RISC-V
+### Routing is the new bottleneck.
 
-**Custom paths for inference on silicon**
+**Custom paths for inference on silicon** · RISC-V
 
-<sub>基于 RISC-V 开放 ISA 的端侧 AI 推理基础设施 — 软硬件协同设计</sub>
+<sub>径石 — 为 MoE 路由与矩阵乘热点，在开放 ISA 上刻出可集成的推理路径</sub>
 
 <br/>
 
-[![Labs](https://img.shields.io/badge/Labs-FranklinNexus-1A1F26?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FranklinNexus)
+[![MoE](https://img.shields.io/badge/Wedge-MoE_routing-1A1F26?style=for-the-badge&logo=gitbranch&logoColor=white)](https://github.com/Jinstone-Limited)
 [![ISA](https://img.shields.io/badge/ISA-RISC--V-1A1F26?style=for-the-badge&logo=openjdk&logoColor=white)](https://riscv.org)
-[![Focus](https://img.shields.io/badge/Focus-MoE_·_Matmul_·_Edge-F4F5F7?style=for-the-badge&logo=chip&logoColor=1A1F26)](https://github.com/Jinstone-Limited)
+[![Hotspot](https://img.shields.io/badge/Hotspot-matmul-1A1F26?style=for-the-badge&logo=matrix&logoColor=white)](https://github.com/Jinstone-Limited)
+[![Labs](https://img.shields.io/badge/Labs-FranklinNexus-F4F5F7?style=for-the-badge&logo=github&logoColor=1A1F26)](https://github.com/FranklinNexus)
 
 </div>
 
 ---
 
-## The shift
+## Thesis
 
-Model architectures are changing faster than general-purpose silicon.
+Dense GPUs trained the models. **Sparse, routed inference** is still running on the wrong silicon.
 
-**Mixture-of-Experts**, sparse activation, and routing-heavy workloads expose a structural mismatch: cloud GPUs are optimized for dense matmul, not **expert selection, memory bandwidth, and integration at the edge**.
+Every generation pushes more decisions into **expert selection, gating, and irregular memory** — while accelerators keep optimizing for one thing: big, uniform matmul blocks.
 
-The next infrastructure layer is not another API wrapper. It is **co-designed hardware paths on an open ISA**.
+**Jinstone lives in that gap.** Not broadly at "edge AI." Narrowly at **routing × matmul × integration** — the two kernels and one control plane that decide whether inference ships on-device or dies in the cloud bill.
+
+> The next moat is not a bigger API. It is **a path through the ISA you own.**
 
 ---
 
-## What Jinstone is
+## What we build
 
-**Jinstone（径石）** builds edge AI inference infrastructure on **RISC-V** — from measured software baselines to custom extensions and integration-ready reference designs.
+**Jinstone（径石）** — edge inference infrastructure carved into **RISC-V**.
 
-| 径 | Path — routing, expert selection, ISA-level control flow |
-| 石 | Silicon — accelerators, co-processors, deployable IP |
+| | |
+|---|---|
+| **径** | The path — expert routing, gating, ISA-level control |
+| **石** | The silicon — custom ops, coprocessors, blocks you can integrate |
 
-Not a GPU vendor. Not an AGI app studio. **Infrastructure for inference where power, integration, and ownership matter.**
-
-| Stage | Role |
-|-------|------|
-| **Measure** | Profile real workloads — MoE routing, matmul hotspots, memory bounds |
-| **Extend** | Custom instructions, co-processors, and accelerator blocks on RISC-V |
-| **Verify** | Simulation and FPGA bring-up with reproducible benchmarks |
-| **Integrate** | Reference designs partners can evaluate and ship |
+```text
+profile → extend → prove → integrate
+   │         │        │          │
+software   custom   FPGA /     reference
+baseline   ISA      sim        design
+```
 
 ```mermaid
 flowchart LR
-  subgraph sw["Software baseline"]
-    M[Workload profiling]
-  end
-  subgraph isa["RISC-V extension"]
-    X[Custom ISA / coprocessor]
-  end
-  subgraph hw["Silicon path"]
-    F[FPGA · emulation · PoC]
-  end
-  subgraph edge["Edge deployment"]
-    D[Low-power integrated inference]
-  end
-  M --> X --> F --> D
+  P[Profile<br/>MoE · matmul] --> E[Extend<br/>RISC-V ISA]
+  E --> V[Prove<br/>sim · FPGA]
+  V --> I[Integrate<br/>edge PoC]
 ```
 
-**Measure first. Extend where it counts. Ship paths, not slides.**
+We do **one vertical** exceptionally well:
+
+- **MoE routing** — selection, gating, memory-bound control flow  
+- **Matmul hotspots** — accelerate what the profile actually hits  
+- **Open ISA surface** — inspectable, extensible, partner-ready  
+
+No general-purpose GPU. No application wrapper. No benchmark theater.
 
 ---
 
-## Built different
+## Why now
 
-| Status quo | Jinstone |
-|------------|----------|
-| Dense-GPU mindset for every new model | **Workload-first** — routing and sparsity drive the architecture |
-| Closed, black-box accelerators | **Open ISA** — inspectable, extensible, partner-friendly |
-| Slide-deck IP | **Reproducible baselines → verified extensions → PoC** |
-| Cloud-only inference | **Edge-ready** — lower power, tighter integration |
+| Everyone optimizes for | Models actually need |
+|----------------------|----------------------|
+| Dense tensor cores | **Sparse activation & expert routing** |
+| Closed black boxes | **An ISA you can extend and audit** |
+| Cloud-scale power budgets | **Watts per useful token at the edge** |
+| Slide-deck "AI chips" | **Reproducible profile → silicon artifact** |
 
----
-
-## Principles
-
-- **Open ISA, owned path** — RISC-V as the integration surface, not a marketing label  
-- **Software leads hardware** — profile before you pipeline  
-- **Sparse is the default** — MoE and activation sparsity are first-class design inputs  
-- **Mature engineering** — ship measurable artifacts, not demo hype  
+Model structure moved. **Silicon didn't keep up.** Jinstone is the correction — quiet, measured, and built to tape out thinking.
 
 ---
 
-## Focus areas
+## How we work
 
-| Area | Direction |
-|------|-----------|
-| **MoE routing** | Expert selection, gating, and memory-aware scheduling |
-| **Matmul & tensor ops** | Hotspot acceleration without rebuilding a general GPU |
-| **Custom instructions** | ISA extensions aligned to measured kernels |
-| **Edge LLM inference** | Low-power, embeddable, less cloud dependency |
-| **Verification stack** | ISA sim → FPGA — reproducible benchmark loops |
+Cold engineering. Hot problem.
 
----
+1. **Profile before you pipeline** — real workloads, real numbers  
+2. **Extend only where the profile screams** — no vanity instructions  
+3. **Prove in sim and FPGA** — same benchmarks, every iteration  
+4. **Ship artifacts others can run** — not narratives they can't verify  
 
-## Where we are
-
-**Active R&D** across software baselines, RISC-V labs, and FPGA-oriented validation.
-
-We are building like a silicon infrastructure team — **clear benchmarks, explicit extension contracts, and artifacts collaborators can run** — not like a benchmark chart factory.
-
-Public labs and experiments live under **[FranklinNexus](https://github.com/FranklinNexus)** while core IP matures in this organization.
+We are a **silicon infrastructure** team in temperament: restraint in scope, obsession in the wedge.
 
 ---
 
-## Read more
+## Status
 
-| Resource | Link |
-|----------|------|
-| Founder labs & open experiments | [github.com/FranklinNexus](https://github.com/FranklinNexus) |
-| Organization | [github.com/Jinstone-Limited](https://github.com/Jinstone-Limited) |
+**In the lab.** Baselines running. Extensions under validation. Public experiments at **[FranklinNexus](https://github.com/FranklinNexus)**; core reference designs maturing here.
 
-**Collaboration or design-partner inquiries** → open an issue in a public repo or reach out via GitHub profile.
-
----
-
-## Open engineering
-
-This organization publishes **research notes, design artifacts, and reference experiments** as they mature.
-
-Select repositories may remain **private during active development**. **Follow [@Jinstone-Limited](https://github.com/Jinstone-Limited)** for public releases and partner-facing reference designs.
+Follow **[@Jinstone-Limited](https://github.com/Jinstone-Limited)** for releases. Design-partner conversations welcome — bring a workload, not a deck.
 
 ---
 
@@ -132,7 +104,9 @@ Select repositories may remain **private during active development**. **Follow [
 
 <br/>
 
-**JINSTONE** · *Custom paths for inference on silicon*
+**JINSTONE**
+
+*Custom paths for inference on silicon.*
 
 <br/>
 
