@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/jinstone-banner.png" alt="Jinstone" width="680" />
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-banner.jpg" alt="Jinstone" width="680" />
 
 ### Routing is the new bottleneck.
 
@@ -47,11 +47,8 @@ software   custom   FPGA /     reference
 baseline   ISA      sim        design
 ```
 
-```mermaid
-flowchart LR
-  P[Profile<br/>MoE · matmul] --> E[Extend<br/>RISC-V ISA]
-  E --> V[Prove<br/>sim · FPGA]
-  V --> I[Integrate<br/>edge PoC]
+```text
+Profile (MoE · matmul) → Extend (RISC-V ISA) → Prove (sim · FPGA) → Integrate (edge PoC)
 ```
 
 We do **one vertical** exceptionally well:
@@ -100,7 +97,7 @@ Follow **[@Jinstone-Limited](https://github.com/Jinstone-Limited)** for releases
 
 <div align="center">
 
-<img src="assets/jinstone-mark.png" alt="Jinstone" width="56" />
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-mark.png" alt="Jinstone" width="56" />
 
 <br/>
 
