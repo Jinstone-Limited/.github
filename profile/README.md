@@ -97,7 +97,7 @@ Follow **[@Jinstone-Limited](https://github.com/Jinstone-Limited)** for releases
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-mark.png" alt="Jinstone" width="56" />
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-mark.png" alt="Jinstone" height="56" />
 
 <br/>
 
