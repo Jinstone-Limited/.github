@@ -85,6 +85,8 @@ Cold engineering. Hot problem.
 
 We are a **silicon infrastructure** team in temperament: restraint in scope, obsession in the wedge.
 
+**Brand & assets →** [docs/brand](https://github.com/Jinstone-Limited/.github/tree/main/docs/brand)
+
 ---
 
 ## Status
