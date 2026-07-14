@@ -1,49 +1,88 @@
-# Brand Guidelines · 径石 Jinstone
+# Jinstone Visual System 1.0
 
-Public reference for **Jinstone** visual identity.
+![Jinstone dark-field campaign master](../../profile/assets/jinstone-hero-generated-v1.png)
 
-## Wordmark
+This is the public source of truth for Jinstone（径石）identity, campaign
+imagery, evidence labels, release graphics, and motion direction. The system is
+meant to survive changes in models, boards, foundries, and product form.
 
-**径石** (ZH) · **Jinstone** (EN). Do not use "Stack Labs" externally.
+## Core idea
 
-**Tagline (EN):** *Custom paths for inference on silicon*  
-**Tagline (ZH):** 在硅上为 AI 推理开辟自己的路径
+**Measure the path. Build the silicon.**
 
-## Mark
+The visual sequence is physical rather than diagrammatic:
 
-**Hexagon + routing lines** — paths on silicon.  
-Do **not** reuse LASZLO's pulse triangle.
+```text
+unresolved field → selected route → measurement gate → visible result
+```
 
-## Colors
+The route is not decoration. It represents a workload path selected by
+evidence. The coral gate is a proof boundary. The terminal object must show a
+real or explicitly conceptual result, never imply hardware that does not
+exist.
 
-| Role | Hex | Usage |
-|------|-----|--------|
-| **Graphite** | `#1A1F26` | Primary, dark backgrounds, badges |
-| **Mist** | `#F4F5F7` | Light backgrounds |
-| **Route** | `#27D7C7` | Optional accent on traces (sparingly) |
-| **Muted** | `#889099` | Secondary text |
+## Canonical identity
 
-## Tone
+The existing logo is immutable. AI and drawing scripts must not reconstruct,
+clean up, rotate, or reinterpret it.
 
-- Calm, credible, mature hard-tech — Intel/NVIDIA restraint, not crypto neon  
-- **Sexy = one sharp thesis; rational = measurable artifacts**  
-- Firewall: one message per brand — see [Franklin Nexus profile](https://github.com/FranklinNexus)
+| Source | Status | Use |
+|---|---|---|
+| [`jinstone-mark.png`](../../profile/assets/jinstone-mark.png) | Canonical raster mark | Organization avatar and light fields |
+| [`jinstone-banner.jpg`](../../profile/assets/jinstone-banner.jpg) | Canonical raster lockup | Reference for the exact mark and wordmark |
 
-## Assets
+Until the original vector artwork is supplied, do not publish a new SVG mark
+or reverse lockup. Generated campaign images contain no logo; the exact source
+logo is placed separately at publication time.
 
-| File | Use |
-|------|-----|
-| `jinstone-banner.jpg` | README headers (compressed for mobile) |
-| `jinstone-mark.png` | Avatar, favicon source |
+## Campaign world
 
-Download from [`profile/assets/`](../profile/assets/).
+![Jinstone light-field campaign master](./assets/jinstone-campaign-light-v1.png)
 
-## Links
+![Jinstone proof frame](./assets/jinstone-proof-frame-v1.png)
 
-- Org profile: [github.com/Jinstone-Limited](https://github.com/Jinstone-Limited)
-- Founder labs: [github.com/FranklinNexus](https://github.com/FranklinNexus)
-- Pitch (CN): see founder vault `径石_Pitch一页纸` — not mirrored here yet
+The image world is tactile and industrial: engineered mineral, ceramic,
+calibrated metal, physical channels, a selected teal path, and one restrained
+coral proof point. It is concept art, not product evidence.
 
-## Contact
+Avoid generic circuit boards, fake die photography, holograms, neural-network
+meshes, code screens, server racks, glowing particles, and abstract gradients.
 
-Partnership / builder inquiries: WeChat `KuroshiMira` (note: `合作-径石-topic`)
+## Color system
+
+| Token | Hex | Function |
+|---|---|---|
+| Carbon | `#14181C` | Primary technical field |
+| Graphite | `#272E34` | Secondary dark surface |
+| Paper | `#F3F4F0` | Editorial and ceramic field |
+| Route | `#20B8A6` | Selected, measured path |
+| Compute | `#4F6FF2` | Secondary software or host path |
+| Proof | `#E4614D` | Measurement gate and physical proof |
+| Fixture | `#D8A93D` | Simulated or contract-only evidence |
+
+Functional colors identify meaning. They are never atmospheric glow.
+
+## Typography
+
+- Display: **IBM Plex Sans**; system fallback **Bahnschrift / Segoe UI**.
+- Body: **IBM Plex Sans**; system fallback **Segoe UI**.
+- Technical metadata: **IBM Plex Mono**; system fallback **Consolas**.
+- Chinese: **Noto Sans SC**; system fallback **Microsoft YaHei**.
+
+Typography is applied outside generated imagery. Never ask an image model to
+render the Jinstone name, logo, metrics, or evidence labels.
+
+## Evidence as identity
+
+Every result is labeled `FIXTURE`, `HOST`, `BOARD`, `FPGA`, or `SILICON`. The
+level controls both color and permissible language. Conceptual campaign art is
+never evidence.
+
+## Library
+
+- [Asset index](./asset-index.md)
+- [Generation prompts and provenance](./generation-prompts.md)
+- [Release system](./release-system.md)
+- [Motion system](./motion.md)
+- [Voice and claims](./voice-and-claims.md)
+- [Machine-readable tokens](../../brand/tokens.json)

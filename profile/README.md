@@ -1,114 +1,115 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-banner.jpg" alt="Jinstone" width="680" />
+<img src="./assets/jinstone-mark.png" alt="Jinstone" height="96" />
 
-### Routing is the new bottleneck.
+<h1>JINSTONE · 径石</h1>
 
-**Custom paths for inference on silicon** · RISC-V
+**Measurable edge inference systems on open RISC-V.**
 
-<sub>径石 — 为 MoE 路由与矩阵乘热点，在开放 ISA 上刻出可集成的推理路径</sub>
+径石从真实端侧工作负载出发，把可复现的瓶颈变成可集成的计算路径。
 
-<br/>
+[System](#the-system) · [Evidence standard](#evidence-ladder) · [Current phase](#current-phase) · [Visual system](../docs/brand/README.md)
 
-[![MoE](https://img.shields.io/badge/Wedge-MoE_routing-1A1F26?style=for-the-badge&logo=gitbranch&logoColor=white)](https://github.com/Jinstone-Limited)
-[![ISA](https://img.shields.io/badge/ISA-RISC--V-1A1F26?style=for-the-badge&logo=openjdk&logoColor=white)](https://riscv.org)
-[![Hotspot](https://img.shields.io/badge/Hotspot-matmul-1A1F26?style=for-the-badge&logo=matrix&logoColor=white)](https://github.com/Jinstone-Limited)
-[![Labs](https://img.shields.io/badge/Labs-FranklinNexus-F4F5F7?style=for-the-badge&logo=github&logoColor=1A1F26)](https://github.com/FranklinNexus)
+<br />
+
+<img src="./assets/jinstone-hero-generated-v1.png" alt="Jinstone conceptual campaign image: a measured path reaches a physical result" width="100%" />
 
 </div>
 
----
-
 ## Thesis
 
-Dense GPUs trained the models. **Sparse, routed inference** is still running on the wrong silicon.
+Most chip projects begin with an architecture and search for a reason to exist.
+Jinstone begins with a workload, a physical decision loop, and a measurement
+chain.
 
-Every generation pushes more decisions into **expert selection, gating, and irregular memory** — while accelerators keep optimizing for one thing: big, uniform matmul blocks.
+We qualify what fails on existing hardware. We isolate the bottleneck. Only
+then do we move it into a RISC-V extension, FPGA primitive, coprocessor, or
+future silicon block.
 
-**Jinstone lives in that gap.** Not broadly at "edge AI." Narrowly at **routing × matmul × integration** — the two kernels and one control plane that decide whether inference ships on-device or dies in the cloud bill.
+> **We do not start with silicon. We make silicon earn its place.**
 
-> The next moat is not a bigger API. It is **a path through the ISA you own.**
+The long-term wedge is narrow: power-constrained inference where routing,
+quantized matrix work, irregular memory access, and local action latency decide
+whether a system can remain at the edge.
 
----
+## The system
 
-## What we build
+| Stage | System layer | Output |
+|---|---|---|
+| **01 · Qualify** | Qualification Cell measures a complete sensor → model → action loop | Raw events, latency, power, quality, memory, startup, and failure evidence |
+| **02 · Control** | Validation OS binds device identity, collectors, repeatability, and safety gates | Reproducible evidence bundle and a fail-closed claim decision |
+| **03 · Accelerate** | Kernel Lab profiles only qualified bottlenecks on RISC-V and FPGA | A primitive with the same before/after workload and measurement protocol |
+| **04 · Integrate** | Reference designs place the proven path back into a real edge system | An artifact another engineering team can run, inspect, and compare |
 
-**Jinstone（径石）** — edge inference infrastructure carved into **RISC-V**.
+This is one vertical system. The benchmark, board agent, FPGA experiment, and
+future chip are not separate demos; they must share identity, workload, and
+evidence.
 
-| | |
-|---|---|
-| **径** | The path — expert routing, gating, ISA-level control |
-| **石** | The silicon — custom ops, coprocessors, blocks you can integrate |
+<img src="../docs/brand/assets/jinstone-campaign-light-v1.png" alt="Jinstone light-field conceptual campaign image" width="100%" />
+
+## Evidence ladder
+
+Jinstone release language is determined by evidence level, not presentation
+quality.
+
+| Level | What it establishes | Claim boundary |
+|---|---|---|
+| `FIXTURE` | Parser, contracts, reports, and failure behavior execute correctly | No hardware or performance claim |
+| `HOST` | A reproducible software baseline on an identified host | Not representative of an edge target |
+| `BOARD` | A measured run on a bound physical target with trusted collectors | One device/runtime path only |
+| `FPGA` | The architecture changes the same qualified workload under measurement | Not a tapeout or production-power claim |
+| `SILICON` | A physical implementation produces repeatable measurements | Scope remains the published workload, process, and conditions |
+
+Every result should carry the workload, device identity, source revision,
+model/runtime hashes, raw log, collector identity, repeated-run statistics, and
+an explicit claim boundary. A polished fixture stays a fixture.
+
+## Engineering focus
+
+- **Local decision loops** where privacy, connectivity, latency, or failure cost
+  makes cloud-only execution structurally weak.
+- **Open RISC-V control surfaces** that can be inspected, extended, and handed
+  to an integration partner.
+- **Routing and quantized compute hotspots** only when profiles show they are
+  the limiting path.
+- **Visible results**: completed actions, watts, milliseconds, errors, thermal
+  behavior, memory use, and repeatability — not isolated kernel throughput.
+
+## Current phase
+
+Jinstone is building the qualification and control layers first. Software
+contracts and offline evidence paths are under active validation; physical
+board, FPGA, and silicon claims remain gated until their identities,
+instruments, raw evidence, and repeated runs are bound together.
+
+Public repositories will open artifact by artifact when they are replayable.
+There is **no public tapeout claim** today.
+
+## Release discipline
+
+One release communicates one literal result:
 
 ```text
-profile → extend → prove → integrate
-   │         │        │          │
-software   custom   FPGA /     reference
-baseline   ISA      sim        design
+workload → target → measured change → evidence level → claim boundary
 ```
 
-```text
-Profile (MoE · matmul) → Extend (RISC-V ISA) → Prove (sim · FPGA) → Integrate (edge PoC)
-```
+No benchmark without its baseline. No accelerator without the end-to-end path.
+No green status from simulated evidence. No roadmap item presented as a result.
 
-We do **one vertical** exceptionally well:
+<img src="../docs/brand/assets/jinstone-proof-frame-v1.png" alt="Jinstone conceptual proof frame: a selected route crosses a measurement gate" width="100%" />
 
-- **MoE routing** — selection, gating, memory-bound control flow  
-- **Matmul hotspots** — accelerate what the profile actually hits  
-- **Open ISA surface** — inspectable, extensible, partner-ready  
-
-No general-purpose GPU. No application wrapper. No benchmark theater.
-
----
-
-## Why now
-
-| Everyone optimizes for | Models actually need |
-|----------------------|----------------------|
-| Dense tensor cores | **Sparse activation & expert routing** |
-| Closed black boxes | **An ISA you can extend and audit** |
-| Cloud-scale power budgets | **Watts per useful token at the edge** |
-| Slide-deck "AI chips" | **Reproducible profile → silicon artifact** |
-
-Model structure moved. **Silicon didn't keep up.** Jinstone is the correction — quiet, measured, and built to tape out thinking.
-
----
-
-## How we work
-
-Cold engineering. Hot problem.
-
-1. **Profile before you pipeline** — real workloads, real numbers  
-2. **Extend only where the profile screams** — no vanity instructions  
-3. **Prove in sim and FPGA** — same benchmarks, every iteration  
-4. **Ship artifacts others can run** — not narratives they can't verify  
-
-We are a **silicon infrastructure** team in temperament: restraint in scope, obsession in the wedge.
-
-**Brand & assets →** [docs/brand](https://github.com/Jinstone-Limited/.github/tree/main/docs/brand)
-
----
-
-## Status
-
-**In the lab.** Baselines running. Extensions under validation. Public experiments at **[FranklinNexus](https://github.com/FranklinNexus)**; core reference designs maturing here.
-
-Follow **[@Jinstone-Limited](https://github.com/Jinstone-Limited)** for releases. Design-partner conversations welcome — bring a workload, not a deck.
+Design-partner conversations are welcome for real edge workloads with a
+measurable action loop. Bring the workload, its operating constraints, and the
+failure that matters.
 
 ---
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-mark.png" alt="Jinstone" height="56" />
+**JINSTONE · 径石**
 
-<br/>
+*Measure the path. Build the silicon.*
 
-**JINSTONE**
-
-*Custom paths for inference on silicon.*
-
-<br/>
-
-<sub>Hong Kong · 径石</sub>
+Hong Kong
 
 </div>

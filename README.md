@@ -1,8 +1,32 @@
-# Jinstone-Limited/.github
+# Jinstone organization profile
 
-Organization profile repository for [Jinstone](https://github.com/Jinstone-Limited)（径石）.
+Source for the public [Jinstone-Limited](https://github.com/Jinstone-Limited)
+organization page and Jinstone Visual System 1.0.
 
-| Path | Purpose |
-|------|---------|
-| [`profile/README.md`](profile/README.md) | Organization homepage pitch |
-| [`social-preview.png`](social-preview.png) | Upload to **Settings → Social preview** (1280×640) |
+## Structure
+
+- `profile/README.md` — rendered organization homepage.
+- `profile/assets/` — canonical logo sources and the public hero master.
+- `docs/brand/assets/` — generated campaign masters, kept as versioned art.
+- `docs/brand/` — identity, release, claim, motion, and generation standards.
+- `brand/tokens.json` — machine-readable color, type, and evidence tokens.
+
+The organization page should change only when the long-term thesis changes.
+Individual product results belong in release assets and repositories, not in a
+new homepage identity every month.
+
+## Publish
+
+Merging `profile/README.md` and its assets into the default branch updates the
+public organization profile. Two GitHub surfaces remain settings-controlled:
+
+- Upload `profile/assets/jinstone-mark.png` as the organization avatar.
+- Upload `social-preview.png` as the `.github` repository social preview.
+
+Keeping those source files in the repository makes every manual update
+reproducible without pretending repository code can change organization
+settings.
+
+Generated campaign artwork is never a logo master or product-evidence image.
+The existing mark and lockup remain immutable until their original vector
+sources are added.
