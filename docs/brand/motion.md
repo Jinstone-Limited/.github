@@ -34,7 +34,7 @@ footage and evidence after the identity sequence.
 
 1. Real product or instrument state.
 2. Workload and baseline.
-3. Mechanism: route, instruction, block, or control path.
+3. Mechanism: placement, runtime, fallback, bottleneck, or hardware path.
 4. Before/after result with units.
 5. Repeatability and failure state.
 6. Claim boundary and artifact link.

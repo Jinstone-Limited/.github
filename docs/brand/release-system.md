@@ -10,8 +10,8 @@ can be deep; the cover cannot be vague.
 1. Release sequence and date.
 2. Literal result or contract change.
 3. Evidence level: `FIXTURE`, `HOST`, `BOARD`, `FPGA`, or `SILICON`.
-4. Workload and device identity.
-5. Baseline and comparison conditions.
+4. Workload and execution-target identity.
+5. Measurement conditions, plus a baseline when making a comparison.
 6. Commit, artifact digest, or raw-evidence link.
 7. Claim boundary.
 
@@ -36,14 +36,15 @@ IN TWO LINES MAXIMUM
 
 short mechanism or consequence
 
-[EVIDENCE LEVEL]  DEVICE / WORKLOAD / COMMIT / DIGEST
+[EVIDENCE LEVEL]  TARGET / WORKLOAD / COMMIT / DIGEST
 ```
 
 ## Product footage
 
-The first proof shot should reveal the real object or result: the board,
-instrument capture, logic trace, terminal output, report, or integrated action.
-Do not lead with abstract animation when a physical artifact exists.
+The first proof shot should reveal the real object or result: the execution
+receipt, visible fallback, terminal output, report, board, instrument capture,
+logic trace, or integrated action. Do not lead with abstract animation when a
+literal artifact exists.
 
 ## Publication gate
 

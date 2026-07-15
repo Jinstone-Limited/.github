@@ -9,6 +9,7 @@ organization page and Jinstone Visual System 1.0.
 - `profile/assets/` — canonical identity sources and public homepage graphics.
 - `docs/brand/assets/` — generated campaign masters, kept as versioned art.
 - `docs/brand/` — identity, release, claim, motion, and generation standards.
+- `docs/progress/` — public, evidence-bounded project updates.
 - `brand/tokens.json` — machine-readable color, type, and evidence tokens.
 
 The organization page should change only when the long-term thesis changes.

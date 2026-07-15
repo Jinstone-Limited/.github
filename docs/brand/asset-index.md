@@ -22,15 +22,17 @@ roles are recorded in [generation-prompts.md](./generation-prompts.md).
 
 ## System graphics
 
-| Asset | Role |
-|---|---|
-| [`jinstone-system-path-v1.png`](../../profile/assets/jinstone-system-path-v1.png) | Organization-profile view of the four-stage system |
-| [`jinstone-system-path-v1.svg`](../../profile/assets/jinstone-system-path-v1.svg) | Editable source for the system path |
-| [`jinstone-evidence-ladder-v1.png`](../../profile/assets/jinstone-evidence-ladder-v1.png) | Organization-profile view of evidence levels |
-| [`jinstone-evidence-ladder-v1.svg`](../../profile/assets/jinstone-evidence-ladder-v1.svg) | Editable source for the evidence ladder |
+| Asset | Role | Status |
+|---|---|---|
+| [`jinstone-system-path-v1.png`](../../profile/assets/jinstone-system-path-v1.png) | Previous qualification-first four-stage system | Retired 2026-07-15 |
+| [`jinstone-system-path-v1.svg`](../../profile/assets/jinstone-system-path-v1.svg) | Editable source for the previous system path | Retired 2026-07-15 |
+| [`jinstone-evidence-ladder-v1.png`](../../profile/assets/jinstone-evidence-ladder-v1.png) | Technical evidence levels, not a product roadmap | Current |
+| [`jinstone-evidence-ladder-v1.svg`](../../profile/assets/jinstone-evidence-ladder-v1.svg) | Editable source for the evidence ladder | Current |
 
 System graphics are deterministic vector artwork built from the visual tokens.
-They are distinct from conceptual campaign masters and product evidence.
+They are distinct from conceptual campaign masters and product evidence. The
+retired system-path files remain for provenance and must not be used to explain
+the current Local AI Compute product loop.
 
 ## Design data
 
