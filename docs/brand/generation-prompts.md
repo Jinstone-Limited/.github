@@ -9,7 +9,11 @@ Jinstone chip, board, benchmark, or lab result.
 - `profile/assets/jinstone-banner.jpg`: immutable lockup reference only.
 - Generated images contain no logo, wordmark, metrics, or evidence labels.
 
-## Dark-field hero v1
+## Dark-field hero v1 (historical generation input)
+
+The wording below records the original 2026-07-14 input. Its RISC-V-first
+description predates the Local AI Compute direction and is not a current
+product claim; the route-and-proof composition remains usable.
 
 Create an ultra-wide premium industrial campaign frame for a RISC-V edge
 inference company. Several physical channels enter a carbon-black engineered

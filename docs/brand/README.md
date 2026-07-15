@@ -6,9 +6,9 @@ This is the public source of truth for Jinstone（径石）identity, campaign
 imagery, evidence labels, release graphics, and motion direction. The system is
 meant to survive changes in models, boards, foundries, and product form.
 
-## Core idea
+## Current product thesis
 
-**Measure the path. Build the silicon.**
+**Run AI where it belongs. Build silicon when the workload demands it.**
 
 The visual sequence is physical rather than diagrammatic:
 
@@ -17,9 +17,10 @@ unresolved field → selected route → measurement gate → visible result
 ```
 
 The route is not decoration. It represents a workload path selected by
-evidence. The coral gate is a proof boundary. The terminal object must show a
-real or explicitly conceptual result, never imply hardware that does not
-exist.
+constraints and evidence across a device, local compute node, or cloud. The
+coral gate is a proof boundary. The terminal object can be a receipt, software
+result, existing-hardware path, or custom compute result; it must never imply
+hardware that does not exist.
 
 ## Canonical identity
 
@@ -74,9 +75,10 @@ render the Jinstone name, logo, metrics, or evidence labels.
 
 ## Evidence as identity
 
-Every result is labeled `FIXTURE`, `HOST`, `BOARD`, `FPGA`, or `SILICON`. The
-level controls both color and permissible language. Conceptual campaign art is
-never evidence.
+Every technical result is labeled `FIXTURE`, `HOST`, `BOARD`, `FPGA`, or
+`SILICON`. The level controls both color and permissible language. It describes
+the execution evidence, not customer demand, external acceptance, or company
+maturity. Conceptual campaign art is never evidence.
 
 ## Library
 
