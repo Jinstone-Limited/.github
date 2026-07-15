@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/jinstone-mark.png" alt="Jinstone" height="96" />
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-mark.png" alt="Jinstone" height="96" />
 
 <h1>JINSTONE · 径石</h1>
 
@@ -12,7 +12,7 @@
 
 <br />
 
-<img src="./assets/jinstone-hero-generated-v1.png" alt="Jinstone conceptual campaign image: a measured path reaches a physical result" width="100%" />
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-hero-generated-v1.png" alt="Jinstone conceptual campaign image: a measured path reaches a physical result" width="100%" />
 
 </div>
 
@@ -45,7 +45,7 @@ This is one vertical system. The benchmark, board agent, FPGA experiment, and
 future chip are not separate demos; they must share identity, workload, and
 evidence.
 
-<img src="../docs/brand/assets/jinstone-campaign-light-v1.png" alt="Jinstone light-field conceptual campaign image" width="100%" />
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-system-path-v1.png" alt="Jinstone system path: qualify, control, accelerate, and integrate" width="100%" />
 
 ## Evidence ladder
 
@@ -63,6 +63,8 @@ quality.
 Every result should carry the workload, device identity, source revision,
 model/runtime hashes, raw log, collector identity, repeated-run statistics, and
 an explicit claim boundary. A polished fixture stays a fixture.
+
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-evidence-ladder-v1.png" alt="Jinstone evidence ladder from fixture to silicon" width="100%" />
 
 ## Engineering focus
 
@@ -95,8 +97,6 @@ workload → target → measured change → evidence level → claim boundary
 
 No benchmark without its baseline. No accelerator without the end-to-end path.
 No green status from simulated evidence. No roadmap item presented as a result.
-
-<img src="../docs/brand/assets/jinstone-proof-frame-v1.png" alt="Jinstone conceptual proof frame: a selected route crosses a measurement gate" width="100%" />
 
 Design-partner conversations are welcome for real edge workloads with a
 measurable action loop. Bring the workload, its operating constraints, and the

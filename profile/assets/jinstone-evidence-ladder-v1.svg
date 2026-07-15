@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" role="img" aria-labelledby="title desc">
+  <title id="title">Jinstone evidence ladder</title>
+  <desc id="desc">Five evidence levels rise from fixture to silicon while a measurement gate separates execution from physical claims.</desc>
+  <rect width="1600" height="640" fill="#14181C"/>
+
+  <g fill="none" stroke="#394149" stroke-width="2">
+    <path d="M64 104H1536"/>
+    <path d="M64 536H1536"/>
+    <path d="M64 424H1536M64 312H1536M64 200H1536" stroke-dasharray="10 12"/>
+  </g>
+
+  <g font-family="IBM Plex Mono, Consolas, monospace" letter-spacing="0">
+    <text x="64" y="66" fill="#98A2A8" font-size="24">EVIDENCE LEVEL SETS THE CLAIM</text>
+    <text x="1536" y="66" fill="#F3F4F0" font-size="24" text-anchor="end">PRESENTATION DOES NOT</text>
+  </g>
+
+  <g font-family="IBM Plex Sans, Segoe UI, sans-serif" letter-spacing="0">
+    <g transform="translate(64 404)">
+      <rect width="250" height="132" fill="#272E34" stroke="#D8A93D" stroke-width="4"/>
+      <rect width="250" height="12" fill="#D8A93D"/>
+      <text x="24" y="66" fill="#FFFFFF" font-size="42" font-weight="700">FIXTURE</text>
+      <text x="24" y="104" fill="#98A2A8" font-size="23">contract executes</text>
+    </g>
+
+    <g transform="translate(338 348)">
+      <rect width="250" height="188" fill="#272E34" stroke="#4F6FF2" stroke-width="4"/>
+      <rect width="250" height="12" fill="#4F6FF2"/>
+      <text x="24" y="68" fill="#FFFFFF" font-size="42" font-weight="700">HOST</text>
+      <text x="24" y="108" fill="#98A2A8" font-size="23">baseline repeats</text>
+      <path d="M24 148H226" stroke="#4F6FF2" stroke-width="8"/>
+    </g>
+
+    <g transform="translate(612 292)">
+      <rect width="250" height="244" fill="#272E34" stroke="#20B8A6" stroke-width="4"/>
+      <rect width="250" height="12" fill="#20B8A6"/>
+      <text x="24" y="68" fill="#FFFFFF" font-size="42" font-weight="700">BOARD</text>
+      <text x="24" y="108" fill="#98A2A8" font-size="23">target is bound</text>
+      <path d="M24 148H226M24 180H184" stroke="#20B8A6" stroke-width="8"/>
+    </g>
+
+    <g transform="translate(886 236)">
+      <rect width="250" height="300" fill="#272E34" stroke="#20B8A6" stroke-width="4"/>
+      <rect width="250" height="12" fill="#20B8A6"/>
+      <text x="24" y="68" fill="#FFFFFF" font-size="42" font-weight="700">FPGA</text>
+      <text x="24" y="108" fill="#98A2A8" font-size="23">path changes</text>
+      <g transform="translate(24 148)" fill="none" stroke="#20B8A6" stroke-width="7">
+        <rect width="54" height="54"/><rect x="72" width="54" height="54"/><rect x="144" width="54" height="54"/>
+        <path d="M0 80H198"/>
+      </g>
+    </g>
+
+    <g transform="translate(1160 180)">
+      <rect width="376" height="356" fill="#F3F4F0" stroke="#E4614D" stroke-width="4"/>
+      <rect width="376" height="12" fill="#E4614D"/>
+      <text x="24" y="68" fill="#14181C" font-size="42" font-weight="700">SILICON</text>
+      <text x="24" y="108" fill="#5B656C" font-size="23">physical result repeats</text>
+      <g transform="translate(24 148)">
+        <rect width="160" height="160" fill="#14181C"/>
+        <rect x="28" y="28" width="104" height="104" fill="none" stroke="#E4614D" stroke-width="8"/>
+        <path d="M52 80H108M80 52V108" stroke="#20B8A6" stroke-width="8"/>
+        <path d="M184 20H324M184 60H288M184 100H312M184 140H260" stroke="#14181C" stroke-width="8"/>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(852 120)">
+    <path d="M0 0H284" stroke="#E4614D" stroke-width="8"/>
+    <path d="M284 -14L316 0L284 14Z" fill="#E4614D"/>
+    <text x="0" y="-18" fill="#E4614D" font-family="IBM Plex Mono, Consolas, monospace" font-size="23" letter-spacing="0">STRONGER CLAIM / MORE PHYSICAL PROOF</text>
+  </g>
+</svg>

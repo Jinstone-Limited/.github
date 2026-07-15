@@ -20,6 +20,18 @@
 Generated masters are versioned, not overwritten. Their prompts and source
 roles are recorded in [generation-prompts.md](./generation-prompts.md).
 
+## System graphics
+
+| Asset | Role |
+|---|---|
+| [`jinstone-system-path-v1.png`](../../profile/assets/jinstone-system-path-v1.png) | Organization-profile view of the four-stage system |
+| [`jinstone-system-path-v1.svg`](../../profile/assets/jinstone-system-path-v1.svg) | Editable source for the system path |
+| [`jinstone-evidence-ladder-v1.png`](../../profile/assets/jinstone-evidence-ladder-v1.png) | Organization-profile view of evidence levels |
+| [`jinstone-evidence-ladder-v1.svg`](../../profile/assets/jinstone-evidence-ladder-v1.svg) | Editable source for the evidence ladder |
+
+System graphics are deterministic vector artwork built from the visual tokens.
+They are distinct from conceptual campaign masters and product evidence.
+
 ## Design data
 
 | Asset | Use |

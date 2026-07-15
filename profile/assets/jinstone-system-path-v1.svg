@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" role="img" aria-labelledby="title desc">
+  <title id="title">Jinstone workload-to-silicon system path</title>
+  <desc id="desc">A four-stage path moves from qualification through control and acceleration to integration.</desc>
+  <rect width="1600" height="640" fill="#F3F4F0"/>
+
+  <g fill="none" stroke="#D6D9D4" stroke-width="2">
+    <path d="M64 104H1536"/>
+    <path d="M64 536H1536"/>
+    <path d="M400 104V536M800 104V536M1200 104V536"/>
+  </g>
+
+  <g font-family="IBM Plex Mono, Consolas, monospace" letter-spacing="0">
+    <text x="64" y="66" fill="#5B656C" font-size="24">WORKLOAD / MEASUREMENT / COMPUTE / ACTION</text>
+    <text x="1536" y="66" fill="#14181C" font-size="24" text-anchor="end">ONE VERTICAL SYSTEM</text>
+  </g>
+
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M64 320H1536" stroke="#14181C" stroke-width="12"/>
+    <path d="M64 320H250" stroke="#D8A93D" stroke-width="12"/>
+    <path d="M250 320H645" stroke="#20B8A6" stroke-width="12"/>
+    <path d="M645 320H1045" stroke="#4F6FF2" stroke-width="12"/>
+    <path d="M1045 320H1536" stroke="#20B8A6" stroke-width="12"/>
+  </g>
+
+  <g font-family="IBM Plex Sans, Segoe UI, sans-serif" letter-spacing="0">
+    <g transform="translate(64 142)">
+      <text x="0" y="44" fill="#98A2A8" font-size="34" font-weight="700">01</text>
+      <text x="0" y="98" fill="#14181C" font-size="48" font-weight="700">QUALIFY</text>
+      <text x="0" y="136" fill="#5B656C" font-size="25">Observe the full loop</text>
+      <g transform="translate(132 220)">
+        <rect x="0" y="0" width="88" height="128" fill="#FFFFFF" stroke="#14181C" stroke-width="5"/>
+        <path d="M16 30H72M16 62H54M16 94H66" stroke="#D8A93D" stroke-width="8"/>
+        <path d="M102 0V128" stroke="#E4614D" stroke-width="8"/>
+      </g>
+    </g>
+
+    <g transform="translate(432 142)">
+      <text x="0" y="44" fill="#98A2A8" font-size="34" font-weight="700">02</text>
+      <text x="0" y="98" fill="#14181C" font-size="48" font-weight="700">CONTROL</text>
+      <text x="0" y="136" fill="#5B656C" font-size="25">Bind identity and gates</text>
+      <g transform="translate(132 226)" fill="none" stroke-linecap="square">
+        <path d="M0 16H52L92 56H124" stroke="#394149" stroke-width="8"/>
+        <path d="M0 96H52L92 56" stroke="#20B8A6" stroke-width="12"/>
+        <rect x="124" y="40" width="32" height="32" fill="#E4614D" stroke="none"/>
+      </g>
+    </g>
+
+    <g transform="translate(832 142)">
+      <text x="0" y="44" fill="#98A2A8" font-size="34" font-weight="700">03</text>
+      <text x="0" y="98" fill="#14181C" font-size="48" font-weight="700">ACCELERATE</text>
+      <text x="0" y="136" fill="#5B656C" font-size="25">Move only the bottleneck</text>
+      <g transform="translate(132 210)">
+        <g fill="#FFFFFF" stroke="#14181C" stroke-width="4">
+          <rect x="0" y="0" width="38" height="38"/><rect x="46" y="0" width="38" height="38"/><rect x="92" y="0" width="38" height="38"/>
+          <rect x="0" y="46" width="38" height="38"/><rect x="46" y="46" width="38" height="38" fill="#4F6FF2"/><rect x="92" y="46" width="38" height="38"/>
+          <rect x="0" y="92" width="38" height="38"/><rect x="46" y="92" width="38" height="38"/><rect x="92" y="92" width="38" height="38"/>
+        </g>
+        <path d="M150 65H184" stroke="#E4614D" stroke-width="8"/>
+      </g>
+    </g>
+
+    <g transform="translate(1232 142)">
+      <text x="0" y="44" fill="#98A2A8" font-size="34" font-weight="700">04</text>
+      <text x="0" y="98" fill="#14181C" font-size="48" font-weight="700">INTEGRATE</text>
+      <text x="0" y="136" fill="#5B656C" font-size="25">Return proof to the system</text>
+      <g transform="translate(174 214)" fill="none">
+        <circle cx="58" cy="58" r="52" stroke="#14181C" stroke-width="8"/>
+        <circle cx="58" cy="58" r="24" stroke="#20B8A6" stroke-width="12"/>
+        <path d="M6 58H-28" stroke="#20B8A6" stroke-width="12"/>
+        <path d="M58 6V-20" stroke="#E4614D" stroke-width="8"/>
+      </g>
+    </g>
+  </g>
+
+  <g font-family="IBM Plex Mono, Consolas, monospace" font-size="23" letter-spacing="0">
+    <text x="64" y="586" fill="#D8A93D">RAW EVENTS</text>
+    <text x="432" y="586" fill="#20B8A6">EVIDENCE BUNDLE</text>
+    <text x="832" y="586" fill="#4F6FF2">PROVEN PRIMITIVE</text>
+    <text x="1232" y="586" fill="#20B8A6">REPLAYABLE RESULT</text>
+  </g>
+</svg>

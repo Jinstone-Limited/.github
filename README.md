@@ -6,7 +6,7 @@ organization page and Jinstone Visual System 1.0.
 ## Structure
 
 - `profile/README.md` — rendered organization homepage.
-- `profile/assets/` — canonical logo sources and the public hero master.
+- `profile/assets/` — canonical identity sources and public homepage graphics.
 - `docs/brand/assets/` — generated campaign masters, kept as versioned art.
 - `docs/brand/` — identity, release, claim, motion, and generation standards.
 - `brand/tokens.json` — machine-readable color, type, and evidence tokens.
