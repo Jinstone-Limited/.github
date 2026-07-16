@@ -24,13 +24,13 @@ from [baseline] to [result] under [conditions].
 Evidence: [level]. Boundary: [what remains unproven].
 ```
 
-Current example:
+Current external example:
 
-> One frozen Qwen2.5 x86 local-node configuration completed 5/5 internal runs
-> with p50 7543.840 ms and p95 8471.469 ms. Evidence: HOST. Boundary: the
-> supporting artifacts remain private, so this does not establish external
-> reproduction, semantic acceptance, an edge/cloud comparison, performance
-> leadership, or an SLA.
+> Jinstone has completed task constraints, path selection, real offline
+> inference, and an execution record on one internal local path. Evidence:
+> technical alpha. Boundary: this does not establish an external workload,
+> customer acceptance, a completed multi-path product, performance leadership,
+> or an SLA.
 
 ## Evidence language
 

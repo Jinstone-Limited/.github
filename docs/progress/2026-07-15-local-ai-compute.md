@@ -1,77 +1,106 @@
-# Progress 001: One Real Local Path, Not Customer Validation
+# Progress 001: The First Real Local Execution Loop
 
-**2026-07-15 · Internal HOST evidence**
+**2026-07-15 · Workbench alpha**
 
-径石的产品边界已经从“先做芯片 / 先建验证实验室”重置为 **Local AI
-Compute Node + Runtime**：让一个 AI workload 根据时延、隐私、质量、成本和
-失败约束，在设备、本地节点或云端选择并真实执行路径，再由反复出现的瓶颈决定
-是否进入 runtime、FPGA 或芯片。
+Jinstone has reset its product around one concrete goal:
+
+> Make enterprise-owned AI compute as easy to use as cloud.
+
+An AI team should submit a workload and its latency, privacy, cost,
+availability, and failure constraints. Jinstone should choose an eligible
+device, local-node, or cloud path, execute it, fail over visibly when required,
+and return the result with a verifiable execution record.
 
 ## What changed
 
-The product contract is now explicit:
+Jinstone no longer treats a chip as the starting product.
+
+The first product form is **Local AI Computer**: a local compute node and
+runtime for robotics, automotive, intelligent hardware, edge-AI, and private-AI
+teams.
 
 ```text
-workload constraints
-  → placement decision
-  → execution + visible fallback
-  → evidence-bound receipt
+AI task + constraints
+  → placement
+  → real execution and visible fallback
+  → result + execution record
+  → repeated bottleneck
   → software / existing hardware / custom compute / stop
 ```
 
-A chip is no longer the assumed answer. It has to be earned by repeated
-external workload evidence. Today, only the internal local-node slice has a
-real execution record; device and cloud paths remain unmeasured.
+Silicon remains a long-term capability. It becomes a product decision only
+after the same high-value bottleneck survives software and existing hardware,
+and an external team wants the next version.
 
-## Internal evidence today
+## What exists today
 
-Internal records for one frozen Qwen2.5 x86 local-node configuration show five
-completed fresh offline runs:
+- a Workbench alpha for workload constraints and path selection;
+- a real offline inference adapter for the local node;
+- a versioned execution record that binds the request, chosen path, runtime,
+  result identity, and failure state;
+- one internal local path that completes the full technical loop;
+- an intake contract for the first external workload.
 
-| Result | Value |
-|---|---:|
-| Successful runs | `5 / 5` |
-| p50 end-to-end latency | `7.544 s` |
-| p95 end-to-end latency | `8.471 s` |
-| `30 s` request budget | eligible |
-| `3 s` request budget | blocked |
+The current loop is:
 
-The path binds input, model, runtime, target, adapter, route, output, and receipt
-identities. Persisted records remove prompt and completion plaintext, local
-paths, full argv, hostname, and raw stream text.
+```text
+task constraints → path selection → real offline inference → execution record
+```
 
-## Claim boundary
+This is a meaningful engineering milestone because the product surface now
+reaches real execution. It is not merely an architecture diagram or benchmark.
 
-This is locally identity-pinned internal `HOST` evidence. It does **not** prove:
+## What it does not prove
 
-- customer demand or semantic acceptance;
-- performance leadership or an SLA;
-- an edge/cloud comparison;
-- availability, memory, power, or cost qualification;
-- clean-clone reproduction outside the prepared host.
+The current alpha does not yet establish:
 
-The builder image, model distribution path, runtime artifact, and supporting
-run-set report are not public today. The numbers above are therefore not
-independently reproducible public evidence. The private monorepo also contains
-hardware inventory and must not be made public by changing repository
-visibility.
+- customer demand or customer acceptance;
+- a production deployment;
+- a completed device/local/cloud product;
+- a real cross-path fallback in an external workflow;
+- semantic quality, an SLA, or performance leadership;
+- a repeatable public installation outside the prepared internal environment.
 
-## The next hard gate
+The company is therefore at **technical alpha / product discovery**, not
+commercial validation.
 
-Jinstone will implement an external pilot only when one workflow owner provides:
+## Next 90 days
 
-1. acceptance authority and an evaluator owner;
-2. an approved non-sensitive fixture manifest;
-3. executable acceptance and critical-fail rules;
-4. at least two real candidate paths;
-5. a dated continuation resource if the test passes.
+The next hard milestone is the first design-partner deployment:
 
-Current count: **0 approved external packets, 0 design partners, 0 paid or dated
-engineering commitments, and 0 second real execution paths.** That is the
-product bottleneck.
+1. obtain one external workload with a non-sensitive fixture and acceptance owner;
+2. run it on the local node and at least one real device or cloud path;
+3. make a controlled failure and fallback visible;
+4. deliver a before/after and Go/No-Go decision;
+5. earn a dated continuation resource: engineering time, an interface, a
+   device, or pilot budget.
 
-## 2026-08-09 target
+## Design-partner request
 
-Run one approved external workload on the local node and at least one real edge
-or cloud path, demonstrate visible failure and fallback, return an auditable
-receipt, and obtain one external continue / stop decision backed by resources.
+Jinstone is looking for teams in robotics, automotive, intelligent hardware,
+edge AI, and private AI with a workload that must stay local because of
+privacy, latency, or continuous operation.
+
+For a two-week pilot, the partner provides:
+
+- one non-sensitive workload fixture;
+- at least two candidate execution paths;
+- one workflow owner who can accept or reject the result.
+
+Jinstone targets a concrete delivery: real execution, an explicit
+failure/fallback test, and a before/after decision.
+
+## Twelve-month target
+
+- Local Compute Runtime v1.0 and adapter SDK;
+- three classes of execution path;
+- at least two external workloads;
+- at least two design partners;
+- one paid pilot, NRE, or equivalent engineering commitment;
+- one whole-system optimization derived from a repeated external bottleneck;
+- a Silicon Go/No-Go decision.
+
+The decision rule remains simple:
+
+> Prove that local compute changes one real workload. Then prove that a repeated
+> bottleneck deserves custom compute.

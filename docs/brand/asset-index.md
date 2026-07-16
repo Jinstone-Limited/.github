@@ -20,6 +20,16 @@
 Generated masters are versioned, not overwritten. Their prompts and source
 roles are recorded in [generation-prompts.md](./generation-prompts.md).
 
+## Product evidence
+
+| Asset | Role | Evidence status |
+|---|---|---|
+| [`jinstone-workbench-alpha-v2.png`](../../profile/assets/jinstone-workbench-alpha-v2.png) | Read-only Workbench alpha evaluation used on the organization profile | Real internal alpha; non-sensitive crop |
+
+Product-evidence images must come from a real product state. Hiding internal
+status chrome is allowed; inventing results or presenting a concept image as a
+working product is not.
+
 ## System graphics
 
 | Asset | Role | Status |

@@ -4,141 +4,117 @@
 
 <h1>JINSTONE · 径石</h1>
 
-**Local AI Compute: run AI where it belongs. Build silicon when the workload demands it.**
+**Make enterprise-owned AI compute as easy to use as cloud.**
 
-径石从 Local AI Compute 开始，让 AI workload 在设备、本地算力节点或云端按约束真实执行，
-再让反复出现的瓶颈决定是否进入专用计算与芯片。
+径石让企业像用云一样，使用自己的 AI 算力。
 
-[Product loop](#product-loop) · [Current evidence](#current-evidence) · [Next gate](#next-gate) · [Progress 001](../docs/progress/2026-07-15-local-ai-compute.md)
+提交一个 AI 任务和约束，Jinstone Runtime 决定它在设备、本地节点还是云端运行，
+失败时如何回退，并返回结果与可核验的执行记录。
 
-<br />
-
-<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-hero-generated-v1.png" alt="Conceptual Jinstone campaign image: one measured route reaches a proof gate" width="100%" />
+[Product](#product) · [Progress](#progress) · [Design partners](#design-partners) · [Progress 001](../docs/progress/2026-07-15-local-ai-compute.md)
 
 </div>
 
-## Thesis
+## Why now
 
-AI is moving from a chat window into devices, vehicles, robots, private data,
-and continuous workflows. The right execution location is not always the cloud,
-and it is not always local.
+AI is moving from chat windows into robots, vehicles, intelligent devices, and
+private workflows. These systems cannot assume that every request can wait for
+the cloud:
 
-Jinstone starts with the workload:
+- networks disconnect;
+- private data cannot always leave the site;
+- actions have latency and availability requirements;
+- complex work may still need a local node or cloud capacity.
 
-- What latency, privacy, quality, cost, availability, and failure constraints
-  actually matter?
-- Should this request run on the device, a local compute node, or the cloud?
-- What happened when the selected path failed?
-- Which bottleneck remains after software and existing hardware are exhausted?
+Teams currently stitch these paths together one integration at a time.
+Jinstone is building the local compute layer that makes execution location,
+failure, and evidence explicit.
 
-> **Silicon is not the starting assumption. It has to earn its place.**
+## Product
 
-## Product loop
-
-| Stage | Jinstone does | Literal output |
-|---|---|---|
-| **01 · Contract** | Capture the workload, data boundary, acceptance rules, and failure cost | Versioned workload contract |
-| **02 · Place** | Mark device, local-node, and cloud routes eligible, blocked, or unmeasured | Explainable placement decision |
-| **03 · Execute** | Run the chosen path and make fallback visible | Result + execution receipt |
-| **04 · Learn** | Group repeatable evidence and profile the remaining bottleneck | Software / existing hardware / custom compute / stop |
-
-```mermaid
-flowchart LR
-  W[Workload constraints] --> P[Placement policy]
-  P --> E[Device]
-  P --> L[Local node]
-  P --> C[Cloud]
-  E --> R[Execution receipt]
-  L --> R
-  C --> R
-  R --> F[Evidence and profiler]
-  F --> P
-  F --> H[Workload-derived acceleration gate]
-```
-
-The loop is allowed to stop at any layer. A fixture is not customer demand, a
-host baseline is not edge efficiency, and a primitive is not a chip company.
-
-## Evidence discipline
-
-Jinstone release language is set by evidence level, not presentation quality.
-
-<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-evidence-ladder-v1.png" alt="Jinstone evidence ladder from fixture to silicon" width="100%" />
-
-This is a technical evidence taxonomy, not a product roadmap. A useful product
-may stop at `HOST`, `BOARD`, or any earlier layer; stronger physical claims
-simply require stronger physical proof.
-
-Every result names the workload, target, model/runtime identity, source
-revision, repeated-run statistics, and the boundary of what remains unproven.
-
-## Current evidence
-
-Internal records for the first lifecycle-hardened x86 local-node configuration
-show five completed fresh offline Qwen2.5 runs:
-
-| Internal HOST result | Value |
-|---|---:|
-| Successful runs | `5 / 5` |
-| p50 end-to-end latency | `7.544 s` |
-| p95 end-to-end latency | `8.471 s` |
-| `30 s` request budget | eligible |
-| `3 s` request budget | blocked |
-
-The execution path binds input, model, runtime, target, adapter, route, output,
-and receipt identities. Prompt and completion plaintext, host paths, full argv,
-hostname, and raw stream text are removed from persisted records.
-
-This is **internal HOST evidence**. It is not customer validation, a performance
-leadership claim, an SLA, an edge/cloud comparison, or clean-clone public
-reproduction. The builder image, model distribution path, and runtime artifact
-remain local-only, so this result is not independently reproducible public
-evidence.
-
-Read [Progress 001](../docs/progress/2026-07-15-local-ai-compute.md) for the
-full result and claim boundary.
-
-## Next gate
-
-Current product evidence remains:
+The first product form is **Jinstone Local AI Computer**: a local compute node
+and runtime for robotics, automotive, intelligent-device, edge-AI, and private-AI
+teams.
 
 ```text
-0 approved external workloads
-0 design partners
-0 paid or dated engineering commitments
-0 second real execution paths
+AI task + constraints
+  → choose device / local node / cloud
+  → execute and fail over visibly
+  → result + verifiable execution record
 ```
 
-The next implementation starts only when one workflow owner provides an
-approved non-sensitive fixture, an evaluator with acceptance authority, at
-least two real candidate paths, and a dated continuation resource.
+The user works through one workload interface. The runtime handles placement,
+execution, fallback, and the record of what actually happened.
 
-Design-partner conversations are welcome from robotics, automotive, device,
-edge-AI, and private-AI teams with a real local-versus-cloud decision. We do not
-ask for production data, credentials, internal URLs, or unpublished code.
+<img src="https://raw.githubusercontent.com/Jinstone-Limited/.github/main/profile/assets/jinstone-workbench-alpha-v2.png" alt="Jinstone Workbench alpha after a read-only local-path evaluation" width="100%" />
+
+## Progress
+
+Jinstone has built a Workbench alpha and closed its first real technical loop
+on one internal local path:
+
+```text
+task constraints → path selection → real offline inference → execution record
+```
+
+This establishes that the product contract can reach real execution. It does
+not yet establish customer demand, a production deployment, performance
+leadership, an SLA, or a completed device/local/cloud product.
+
+The next product milestone is an external workload running on the local node
+and at least one real device or cloud path, with an explicit failure test and a
+continue/stop decision from the workflow owner.
+
+## Why Jinstone
+
+Jinstone starts from the workload, not from a predetermined chip.
+
+Repeated bottlenecks decide what to build next:
+
+1. use software and existing hardware first;
+2. measure the complete workload, not an isolated benchmark;
+3. enter custom runtime, FPGA, IP, or silicon only when the same high-value
+   bottleneck survives and an external team wants the next version.
+
+> **Run AI where it belongs. Build silicon when the workload demands it.**
 
 ## Founder
 
 **Fanrui Kong · 孔繁睿**, 19, studies Microelectronics Science and Technology at
-Xi'an Jiaotong-Liverpool University. He works across software, systems, FPGA,
-and chip design, and is validating Jinstone from workload contracts upward
-rather than starting with a chip narrative.
+Xi'an Jiaotong-Liverpool University.
 
-The current founder proof is not pedigree or endorsement. It is learning speed:
-turning direct product feedback into a narrower thesis, a real execution path,
-and an explicit list of what is still unknown.
+He has built across workload interfaces, runtime systems, RISC-V, FPGA, and
+chip design. That range lets Jinstone follow one real AI task from the product
+surface down to the hardware bottleneck, while keeping silicon as an earned
+decision rather than a starting story.
 
-## Release discipline
+## Design partners
 
-One update communicates one literal result:
+Jinstone is looking for its first design partners in robotics, automotive,
+intelligent hardware, edge AI, and private AI.
 
-```text
-workload → target → measured result → evidence level → claim boundary
-```
+The strongest starting workload has:
 
-No benchmark without its baseline. No accelerator without the end-to-end path.
-No roadmap item presented as a result. No public code release until it can be
-extracted without private inventory and replayed from a clean environment.
+- a real reason to stay local, such as privacy, latency, or continuous operation;
+- a non-sensitive test fixture;
+- at least two candidate execution paths;
+- one workflow owner who can accept or reject the result.
+
+Jinstone's two-week pilot target is to deliver real execution, an explicit
+failure/fallback test, and a before/after decision. A successful test should
+lead to a dated next commitment: engineering time, an interface, a device, or
+pilot budget.
+
+## Twelve-month target
+
+- Local Compute Runtime v1.0 and adapter SDK;
+- three classes of execution path;
+- at least two external workloads;
+- at least two design partners;
+- one paid pilot, NRE, or equivalent engineering commitment;
+- one whole-system optimization derived from a repeated external workload
+  bottleneck;
+- a Silicon Go/No-Go decision, not a promised tapeout.
 
 ---
 
